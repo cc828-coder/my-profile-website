@@ -1,0 +1,181 @@
+baseURL: /
+title: "Xinyi Chen (Crystal)"
+languageCode: en-us
+theme: tailbliss
+DefaultContentLanguage: en
+enableEmoji: true
+enableGitInfo: false
+enableRobotsTXT: true
+canonifyURLs: false
+pagination:
+  pagerSize: 9
+darkmode_js:
+  - assets/js/darkmode.js
+enableInlineShortcodes: true
+
+markup:
+  goldmark:
+    extensions:
+      definitionList: true
+      footnote: true
+      linkify: true
+      linkifyProtocol: https
+      strikethrough: true
+      table: true
+      taskList: true
+      typographer:
+        apostrophe: '&rsquo;'
+        disable: false
+        ellipsis: '&hellip;'
+        emDash: '&mdash;'
+        enDash: '&ndash;'
+        leftAngleQuote: '&laquo;'
+        leftDoubleQuote: '&ldquo;'
+        leftSingleQuote: '&lsquo;'
+        rightAngleQuote: '&raquo;'
+        rightDoubleQuote: '&rdquo;'
+        rightSingleQuote: '&rsquo;'
+    parser:
+      attribute:
+        block: false
+        title: true
+      autoHeadingID: true
+      autoHeadingIDType: github
+      wrapStandAloneImageWithinParagraph: true
+    renderer:
+      hardWraps: false
+      unsafe: true
+      xhtml: false
+
+params:
+  author: Xinyi Chen (Crystal)
+  authorimage: ../assets/images/global/author.webp
+  og_image: /images/tailbliss-cover.png
+  moto: "UCL & Edinburgh Alumna | Energy & Macro Strategist | Ex-Energy Aspects & Petroineos | TTPS Holder"
+  description: "Research Analyst with 2+ years of London-based experience in multi-asset demand forecasting and fundamental modeling. Leveraging a dual background in BSc Mathematics and MSc Sustainable Economics to deliver data-driven market outlooks. Expert in synthesizing complex macroeconomic indicators into actionable trading intelligence for global energy markets."
+  disable_theme_toggle: false
+  disable_stay_uptodate: true
+
+  # Hero / Personal Mission Section
+  p1:
+    heading: "Professional Profile"
+    image: "images/pages/our-mission.png"
+    content:
+      - text: "I am a dedicated Energy Analyst with a strong foundation in Mathematics and Business from the University of Edinburgh and an MSc in Sustainable Resources from University College London (UCL). My expertise lies in quantitative modeling, market dynamics analysis, and global supply-demand forecasting."
+      - text: "During my tenure at Energy Aspects, I developed and optimized global multi-asset demand forecasting frameworks covering over 90 countries. My goal is to synthesize complex macroeconomic indicators into actionable insights for strategic decision-making in energy trade."
+      - text: "With advanced skills in Python, R, SQL, and LaTeX[cite: 1], I bridge the gap between rigorous mathematical modeling and real-world energy policy transitions[cite: 1]."
+
+  # Core Expertise Section
+  p2:
+    heading: "Quantitative Skills & Market Analysis"
+    image: "images/pages/hacktoberfest.jpg"
+    content:
+      - text: "My background combines deep technical IT skills with market research experience[cite: 1]. Whether designing dynamic demand models that improve accuracy by 12.5%[cite: 1] or leading environmental trade-in projects at JD.com[cite: 1], I focus on data-backed solutions."
+      - type: "table"
+        columns:
+          - heading: "Technical Stack"
+            items:
+              - "Python & R Modeling"
+              - "SQL & Database Management"
+              - "LaTeX Documentation"
+              - "Advanced Excel & VBA"
+          - heading: "Core Expertise"
+            items:
+              - "Demand Forecasting"
+              - "Market Risk Exposure"
+              - "Sustainability Metrics"
+              - "S&D Outlook Synthesis"
+
+  # Education / Credentials Section
+  p3:
+    heading: "Academic Background"
+    content:
+      - text: "Education from world-leading institutions in the UK focusing on Sustainable Resources (UCL) and Mathematics & Business (Edinburgh)[cite: 1]."
+    links:
+      - text: View LinkedIn Profile
+        url: "https://www.linkedin.com" # Replace with your actual LinkedIn
+    logos:
+      - identifier: ucl
+        alt: "UCL"
+      - identifier: edinburgh
+        alt: "University of Edinburgh"
+
+  # Blog Section (For your Daily Insights)
+  p4:
+    heading: "Daily Insights & Quantitative Projects"
+    content:
+      - text: "Regular updates on energy market dynamics, price volatility tracking, and policy impact analysis[cite: 1]."
+
+  # Contact / Newsletter Section
+  p5:
+    heading: "Connect with Crystal"
+    content:
+      - text: "Interested in energy market analysis, sustainability modeling, or potential collaborations? Feel free to reach out."
+    action: "mailto:crystalchen828@gmail.com"
+    label: "Professional Inquiry"
+    placeholder: "Your message topic"
+    button: "Send Email"
+
+  social_media:
+    github:
+      enabled: true
+      url: 'https://github.com' # Replace with your GitHub
+    linkedin:
+      enabled: true
+      url: 'https://linkedin.com' # Replace with your LinkedIn
+    email:
+      enabled: true
+      url: 'mailto:crystalchen828@gmail.com'
+
+menu:
+  main:
+    - identifier: about
+      name: Resume
+      url: /about/
+      weight: 10
+    - identifier: blog
+      name: Daily Insights
+      url: /categories/news/
+      weight: 20
+    - identifier: projects
+      name: Quant Projects
+      url: /categories/prose/
+      weight: 30
+    - identifier: contact
+      name: Contact
+      url: /contact/
+      weight: 40
+
+  footer:
+    - identifier: about
+      name: Resume
+      url: /about/
+      weight: 10
+    - identifier: blog
+      name: Market Insights
+      url: /categories/news/
+      weight: 20
+    - identifier: projects
+      name: Quantitative Work
+      url: /categories/prose/
+      weight: 30
+
+taxonomies:
+  category: Categories
+  tag: Tags
+
+privacy:
+  disqus:
+    disable: false
+  googleAnalytics:
+    anonymizeIP: true
+    disable: false
+  instagram:
+    disable: true
+  twitter:
+    disable: false
+
+module:
+  hugoVersion:
+    extended: true
+    min: "0.148.2"
