@@ -56,17 +56,50 @@ params:
   disable_theme_toggle: false
   disable_stay_uptodate: true
 
-  # Hero / Personal Mission Section
+  # Education / Credentials Section
   p1:
-    heading: "Professional Profile"
-    image: "images/pages/our-mission.png"
+    heading: "Academic Background"
     content:
-      - text: "I am a dedicated Energy Analyst with a strong foundation in Mathematics and Business from the University of Edinburgh and an MSc in Sustainable Resources from University College London (UCL). My expertise lies in quantitative modeling, market dynamics analysis, and global supply-demand forecasting."
-      - text: "During my tenure at Energy Aspects, I developed and optimized global multi-asset demand forecasting frameworks covering over 90 countries. My goal is to synthesize complex macroeconomic indicators into actionable insights for strategic decision-making in energy trade."
-      - text: "With advanced skills in Python, R, SQL, and LaTeX[cite: 1], I bridge the gap between rigorous mathematical modeling and real-world energy policy transitions[cite: 1]."
+      - text: "**University College London (UCL)** | QS World Rank #9  \nMSc in Sustainable Resources: Economics, Policy & Transitions — specialized in global resource economics and energy transition analytics."
+      - text: "**University of Edinburgh** | QS World Rank #27  \nBachelor of Science in Mathematics and Business — developed advanced statistical modeling and quantitative reasoning for market analysis."
+    logos:
+      - identifier: ucl
+        alt: "UCL"
+      - identifier: edinburgh
+        alt: "University of Edinburgh"
 
-  # Core Expertise Section
+  # Professional Journey Section
   p2:
+    heading: "Professional Journey"
+    experience:
+      - company: "Energy Aspects"
+        logo: "energy-aspects"
+        period: "May 2024 - Nov 2025"
+        role: "Analyst"
+        details: "Optimised global demand forecasting for 90+ countries; delivered high-accuracy S&D outlooks for strategic trade decision-making."
+      - company: "CTRL SPACES (Start-up)"
+        logo: "ctrl-spaces"
+        period: "Jan 2024 - May 2024"
+        role: "Energy & Sustainability Analyst"
+        details: "Analysed energy usage for 70+ companies; managed BREEAM assessments and Scope 1,2,3 emissions monitoring."
+      - company: "Petroineos (PetroChina)"
+        logo: "petroineos"
+        period: "Jul 2023 - Sep 2023"
+        role: "Summer Analyst"
+        details: "Designed a dynamic demand model improving historical analysis accuracy by 12.5% for refined oil products."
+      - company: "JingDong (JD.com)"
+        logo: "jd"
+        period: "May 2021 - Jul 2021"
+        role: "Strategy & Operation Intern"
+        details: "Led the environmental Trade-in project, achieving a 50% increase in user conversion rate through market research."
+      - company: "Tencent"
+        logo: "tencent"
+        period: "Mar 2021 - May 2021"
+        role: "Business Development Analyst Intern"
+        details: "Built platform ecology models from 0-1 and contributed to a 17% increase in app downloads via influencer CRM."
+        
+  # Core Expertise Section
+  p3:
     heading: "Quantitative Skills & Market Analysis"
     image: "images/pages/hacktoberfest.jpg"
     content:
@@ -86,23 +119,9 @@ params:
               - "Sustainability Metrics"
               - "S&D Outlook Synthesis"
 
-  # Education / Credentials Section
-  p3:
-    heading: "Academic Background"
-    content:
-      - text: "Education from world-leading institutions in the UK focusing on Sustainable Resources (UCL) and Mathematics & Business (Edinburgh)[cite: 1]."
-    links:
-      - text: View LinkedIn Profile
-        url: "https://www.linkedin.com" # Replace with your actual LinkedIn
-    logos:
-      - identifier: ucl
-        alt: "UCL"
-      - identifier: edinburgh
-        alt: "University of Edinburgh"
-
   # Blog Section (For your Daily Insights)
   p4:
-    heading: "Daily Insights & Quantitative Projects"
+    heading: "Past Project Experience"
     content:
       - text: "Regular updates on energy market dynamics, price volatility tracking, and policy impact analysis[cite: 1]."
 

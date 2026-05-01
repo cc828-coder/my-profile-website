@@ -21,7 +21,7 @@
                 <h1 class="mb-4 text-4xl font-extrabold tracking-tight leading-none text-white md:text-5xl xl:text-7xl">
                     {{ .Site.Title }}
                 </h1>
-                <h2 class="mb-4 text-2xl font-light text-gray-300 md:text-3xl border-l-4 border-emerald-500 pl-4">
+                <h2 class="mb-4 text-4xl font-light text-gray-300 md:text-3xl border-l-4 border-emerald-500 pl-4">
                     {{ .Site.Params.Moto }}
                 </h2>
                 <p class="mb-8 max-w-2xl font-light text-gray-100 md:text-lg xl:text-xl leading-relaxed">
@@ -40,46 +40,78 @@
     </div>
     <!-- Main page content -->
 
-    <!-- Our mission section -->
-    <div class="relative my-4">
-        <div class="lg:mx-auto lg:grid lg:max-w-7xl lg:grid-cols-2 lg:items-start lg:gap-24 lg:px-8">
-            <div class="relative sm:py-8 lg:py-0">
-                <div aria-hidden="true" class="hidden sm:block lg:absolute lg:inset-y-0 lg:right-0 lg:w-screen">
-                    <div class="absolute inset-y-0 right-1/2 w-full bg-gray-50 rounded-r-3xl dark:bg-gray-900/10 lg:right-72"></div><svg class="absolute top-8 left-1/2 -ml-3 lg:-right-8 lg:left-auto lg:top-12" width="404" height="392" fill="none" viewBox="0 0 404 392" loading="lazy">
-                        <defs>
-                            <pattern id="02f20b47-fd69-4224-a62a-4c9de5c763f7" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-                                <rect x="0" y="0" width="4" height="4" class="text-gray-200 dark:text-gray-900/60" fill="currentcolor"></rect>
-                            </pattern>
-                        </defs>
-                        <rect width="404" height="392" fill="url(#02f20b47-fd69-4224-a62a-4c9de5c763f7)"></rect>
-                    </svg>
-                </div>
-                <div class="relative px-4 py-6 mx-auto w-full h-auto sm:max-w-3xl sm:px-6 lg:px-0 lg:py-20">
-                    <div class="overflow-hidden rounded-2xl shadow-xl">
-                        {{ $p1image := resources.Get .Site.Params.P1.Image }}
-                        {{ with $p1image }}
-                        {{ with .Resize "600x600 webp q85" }}
-                        <img src="{{ .RelPermalink }}" width="{{ .Width }}" height="{{ .Height }}" class="w-full h-auto" alt="P1" loading="lazy" />
-                        {{ end }}
-                        {{ end }}
-                    </div>
-                </div>
+    <!-- Academic Background Section -->
+    <div class="px-4 mx-auto max-w-md md:pt-24 md:pb-16 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
+    <div class="lg:grid lg:grid-cols-2 lg:items-center lg:gap-24">
+        <!-- 左侧：学校校徽区域 -->
+        <div class="grid grid-cols-2 gap-8 mt-12 lg:mt-0"> <!-- 增加间距 gap-8 -->
+            {{ range .Site.Params.p1.logos }}
+            <!-- 核心改动：删掉了背景、阴影和边框相关的 class -->
+            <div class="flex col-span-1 justify-center items-center px-4 py-4 transition-all duration-300 group">
+                <img src="/assets/images/logos/{{ .identifier }}.png" 
+                     alt="{{ .alt }}" 
+                     class="max-h-32 w-auto object-contain opacity-90 group-hover:opacity-100 group-hover:scale-110 transition duration-500"
+                     loading="lazy" />
             </div>
-            <div class="relative px-4 mx-auto max-w-md sm:max-w-3xl sm:px-6 lg:px-0">
-                <div class="md:pt-12 sm:pt-6 lg:pt-20">
-                    <h2 class="text-3xl font-bold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl">
-                        {{ .Site.Params.P1.Heading }}
-                    </h2>
-                    <div class="mt-6 text-gray-900 dark:text-white">
-                        <div class="mt-6 space-y-6 text-gray-900 dark:text-white">
-                            {{ range .Site.Params.P1.Content }}
-                            <p class="text-lg text-gray-900 dark:text-white">
-                                {{ .text }}
-                            </p>
-                            {{ end }}
-                        </div>
+            {{ end }}
+        </div>
+
+            <!-- 右侧：文字说明区域 -->
+            <div class="mt-10 lg:mt-0">
+                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl border-l-4 border-emerald-500 pl-4">
+                    {{ .Site.Params.p1.heading }}
+                </h2>
+                <div class="mt-6 space-y-6 text-gray-700 dark:text-gray-300">
+                    {{ range .Site.Params.p1.content }}
+                    <div class="flex items-start">
+                        <!-- 投行绿色的圆点装饰 -->
+                        <span class="mr-3 mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-emerald-500"></span>
+                        <p class="text-lg leading-relaxed">
+                            {{ .text | markdownify }}
+                        </p>
+                    </div>
+                    {{ end }}
+                </div>                
+            </div>
+        </div>
+    </div>
+
+    <!-- Our professional profile section -->
+    <div class="py-20 px-4 mx-auto max-w-7xl lg:px-8">
+        <h2 class="text-4xl font-extrabold text-white mb-16 border-l-4 border-emerald-500 pl-4">
+                {{ .Site.Params.p2.heading }}
+        </h2>
+        
+        <div class="relative">
+            <!-- 桌面端横线 -->
+            <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gray-800"></div>
+            <!-- 经历网格：自动适配 5 列 -->
+            <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
+                {{ range .Site.Params.p2.experience }}
+                <div class="relative flex flex-col items-center md:items-start group">
+                    
+                    <div class="mb-6 text-emerald-400 font-mono text-xs font-bold uppercase tracking-tighter">
+                        {{ .period }}
+                    </div>
+
+                    <!-- Logo 节点：移除 grayscale，保持原色 -->
+                    <div class="relative z-10 w-20 h-20 mb-6 p-3 bg-gray-900 border border-gray-700 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:border-emerald-500 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+                        <img src="/assets/images/logos/{{ .logo }}.png" 
+                            alt="{{ .company }}" 
+                            class="max-w-full max-h-full object-contain transition-all duration-500"> <!-- 删除了 grayscale -->
+                    </div>
+
+                    <div class="text-center md:text-left">
+                        <h3 class="text-white font-bold text-base leading-tight mb-1">{{ .role }}</h3>
+                        <div class="text-emerald-500 text-xs font-medium mb-3">@ {{ .company }}</div>
+                        
+                        <!-- ✅ 关键修复：将 .text 改为 .details 以匹配你的 YAML -->
+                        <p class="text-gray-400 text-xs leading-relaxed border-t border-gray-800 pt-3">
+                            {{ .details | markdownify }}
+                        </p>
                     </div>
                 </div>
+                {{ end }}
             </div>
         </div>
     </div>
@@ -126,8 +158,7 @@
             </div>
         </div>
     </div>
-
-
+    
     <!-- Sponsors section -->
     <div class="px-4 mx-auto max-w-md md:pt-24 md:pb-16 sm:max-w-3xl sm:px-6 lg:max-w-7xl lg:px-8">
         <div class="lg:grid lg:grid-cols-2 lg:items-center lg:gap-24">
