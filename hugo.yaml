@@ -98,50 +98,82 @@ params:
         role: "Business Development Analyst Intern"
         details: "Built platform ecology models from 0-1 and contributed to a 17% increase in app downloads via influencer CRM."
         
-  # Core Expertise Section
+  # Skillset Radar Section
   p3:
-    heading: "Quantitative Skills & Market Analysis"
-    image: "images/pages/hacktoberfest.jpg"
-    content:
-      - text: "My background combines deep technical IT skills with market research experience[cite: 1]. Whether designing dynamic demand models that improve accuracy by 12.5%[cite: 1] or leading environmental trade-in projects at JD.com[cite: 1], I focus on data-backed solutions."
-      - type: "table"
-        columns:
-          - heading: "Technical Stack"
-            items:
-              - "Python & R Modeling"
-              - "SQL & Database Management"
-              - "LaTeX Documentation"
-              - "Advanced Excel & VBA"
-          - heading: "Core Expertise"
-            items:
-              - "Demand Forecasting"
-              - "Market Risk Exposure"
-              - "Sustainability Metrics"
-              - "S&D Outlook Synthesis"
+    heading: "Core Competencies & Skillsets"
+    # 雷达图的分数 (1-100)，建议根据你的简历强项设定
+    chart_data:
+      - label: "Quant Modeling"
+        value: 87
+      - label: "Market Intel"
+        value: 93
+      - label: "Programming"
+        value: 85
+      - label: "Stakeholder"
+        value: 92
+      - label: "Strategy"
+        value: 87
+    # 右侧列表内容
+    skills:
+      - title: "Quantitative Modeling & Macro Analytics"
+        desc: "Advanced mathematical foundation for developing multi-asset demand frameworks and optimizing model accuracy."
+      - title: "Fundamental Market Intelligence"
+        desc: "Deep expertise in supply-demand (S&D) forecasting across 90+ countries and various fuel types."
+      - title: "Advanced Programming Suite"
+        desc: "Proficient in Python, SQL, R, and LaTeX to automate data pipelines and generate high-quality research."
+      - title: "Stakeholder Engagement & Presentation"
+        desc: "Proven ability to synthesize complex insights for clients and engage large-scale audiences of up to 19,000."
+      - title: "Strategic Operations & Logic"
+        desc: "Demonstrated success in platform ecology modeling and driving user conversion through data-backed strategies."
+
+  # Portfolio / Projects Section
+  p4:
+    heading: "Selected Analysis Portfolios"
+    description: "Visualizing complex energy data into actionable insights through professional reporting and dashboard design."
+    items:
+      - image: "/assets/images/portfolio/ppt-1.png"
+        title: "Global Marine Fuel Outlook"
+      - image: "/assets/images/portfolio/ppt-2.png"
+        title: "SAF Mandate on Supply-Demand Dynamics"
+      - image: "/assets/images/portfolio/ppt-3.png"
+        title: "Decarbonization of the aviation industry"
+      - image: "/assets/images/portfolio/ppt-4.png"
+        title: "FuelEU Maritime Policy Impact Analysis"
+  
 
   # Blog Section (For your Daily Insights)
-  p4:
-    heading: "Past Project Experience"
-    content:
-      - text: "Regular updates on energy market dynamics, price volatility tracking, and policy impact analysis[cite: 1]."
-
-  # Contact / Newsletter Section
   p5:
-    heading: "Connect with Crystal"
-    content:
-      - text: "Interested in energy market analysis, sustainability modeling, or potential collaborations? Feel free to reach out."
-    action: "mailto:crystalchen828@gmail.com"
-    label: "Professional Inquiry"
-    placeholder: "Your message topic"
-    button: "Send Email"
+    heading: "Past Project Experience"
+    description: "Deep-dive into quantitative models and strategic analysis across aviation and energy sectors."
+    projects:
+      - title: "Long-term Transportation Fuel Demand Modelling"
+        image: "/assets/images/portfolio/pic-1.jpg" # 请确保图片名对应
+        tag: "Macro Analysis"
+        details: "Designed a sophisticated forecasting bottom-up framework using Markov Chain models to simulate long-term transitions in the global shipping and aviation sector, quantifying the impact of evolving policies on regional demand."
+      - title: "SAF Mandate Impact on European Aviation Fuel Demand"
+        image: "/assets/images/portfolio/pic-2.jpg"
+        tag: "Modelling"
+        details: "Led a comprehensive analysis of global aviation demand by synthesizing macroeconomic indicators and environmental regulations across 90+ jurisdictions to provide strategic market outlooks."
+      - title: "Energy Trading Risk & Performance Monitoring"
+        image: "/assets/images/portfolio/pic-3.jpg"
+        tag: "Risk Management"
+        details: "Monitored real-time risk exposures, Greeks, and daily P&L for complex energy portfolios, ensuring reporting accuracy and operational integrity within a high-pressure trading environment."
+
+  # Contact / Newsletter Section  p6:
+  p6:
+    heading: "Ready to Start a Conversation?"
+    description: "I am currently open to new opportunities and collaborations in Analytics and Quantitative Finance. Let's connect."
+    email: "crystalchen828@email.com" 
+    linkedin_url: "https://www.linkedin.com/in/crystal-c-5009a4182/"
+    cv_url: "/assets/Xinyi Chen_cv.pdf" # 确保 PDF 存放在 static/assets/ 文件夹下
 
   social_media:
     github:
       enabled: true
-      url: 'https://github.com' # Replace with your GitHub
+      url: 'https://github.com/cc828-coder' # Replace with your GitHub
     linkedin:
       enabled: true
-      url: 'https://linkedin.com' # Replace with your LinkedIn
+      url: 'https://www.linkedin.com/in/crystal-c-5009a4182/' # Replace with your LinkedIn
     email:
       enabled: true
       url: 'mailto:crystalchen828@gmail.com'
