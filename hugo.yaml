@@ -59,6 +59,7 @@ params:
   # Education / Credentials Section
   p1:
     heading: "Academic Background"
+    description: "Bridging the gap between mathematical rigor and sustainable economic frameworks to decode the future of global resources"
     content:
       - text: "**University College London (UCL)** | QS World Rank #9  \nMSc in Sustainable Resources: Economics, Policy & Transitions — specialized in global resource economics and energy transition analytics."
       - text: "**University of Edinburgh** | QS World Rank #27  \nBachelor of Science in Mathematics and Business — developed advanced statistical modeling and quantitative reasoning for market analysis."
@@ -71,6 +72,7 @@ params:
   # Professional Journey Section
   p2:
     heading: "Professional Journey"
+    description: "A track record of delivering high-conviction market insights and strategic analysis across various sectors."
     experience:
       - company: "Energy Aspects"
         logo: "energy-aspects"
@@ -101,6 +103,7 @@ params:
   # Skillset Radar Section
   p3:
     heading: "Core Competencies & Skillsets"
+    description: "Combining quantitative toolkits with sector-specific intelligence to transform market noise into clear, tradable signals."
     # 雷达图的分数 (1-100)，建议根据你的简历强项设定
     chart_data:
       - label: "Quant Modeling"
@@ -116,13 +119,13 @@ params:
     # 右侧列表内容
     skills:
       - title: "Quantitative Modeling & Macro Analytics"
-        desc: "Advanced mathematical foundation for developing multi-asset demand frameworks and optimizing model accuracy."
+        desc: "Advanced mathematical and economic foundation for developing multi-asset demand frameworks and optimizing model accuracy."
       - title: "Fundamental Market Intelligence"
-        desc: "Deep expertise in supply-demand (S&D) forecasting across 90+ countries and various fuel types."
+        desc: "Deep expertise in supply-demand (S&D) forecasting across 90+ countries and various fuels (Oil, Gas, Power & Renewables), delivering high-conviction insights into global energy balances and cross-fuel substitution dynamics."
       - title: "Advanced Programming Suite"
         desc: "Proficient in Python, SQL, R, and LaTeX to automate data pipelines and generate high-quality research."
       - title: "Stakeholder Engagement & Presentation"
-        desc: "Proven ability to synthesize complex insights for clients and engage large-scale audiences of up to 19,000."
+        desc: "Proven ability to synthesize complex insights for clients and engage large-scale audiences of up to 19,000 in the public."
       - title: "Strategic Operations & Logic"
         desc: "Demonstrated success in platform ecology modeling and driving user conversion through data-backed strategies."
 
@@ -181,7 +184,7 @@ params:
 menu:
   main:
     - identifier: about
-      name: Resume
+      name: Life
       url: /about/
       weight: 10
     - identifier: blog
@@ -192,14 +195,10 @@ menu:
       name: Quant Projects
       url: /categories/prose/
       weight: 30
-    - identifier: contact
-      name: Contact
-      url: /contact/
-      weight: 40
 
   footer:
     - identifier: about
-      name: Resume
+      name: Life
       url: /about/
       weight: 10
     - identifier: blog

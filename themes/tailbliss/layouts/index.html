@@ -29,8 +29,8 @@
                 </p>
                 <div class="flex flex-col space-y-4 sm:flex-row sm:space-y-0 sm:space-x-4">
                     <!-- 修改 1: View Resume 改为直接下载 PDF -->
-                    <!-- 确保你的 PDF 文件放在 static/assets/cv-xinyi-chen.pdf -->
-                    <a href="/assets/cv-xinyi-chen.pdf" download class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-center text-white bg-emerald-600 rounded-lg hover:bg-emerald-700 transition duration-300">
+                    <!-- 确保你的 PDF 文件放在 static/assets/Xinyi Chen_cv.pdf -->
+                    <a href="/assets/Xinyi Chen_cv.pdf" download class="inline-flex items-center justify-center px-6 py-3 text-base font-medium text-center text-white bg-emerald-600 rounded-lg hover:bg-emerald-700 transition duration-300">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
@@ -70,7 +70,8 @@
             <div class="mt-10 lg:mt-0">
                 <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 dark:text-gray-50 sm:text-4xl border-l-4 border-emerald-500 pl-4">
                     {{ .Site.Params.p1.heading }}
-                </h2>
+                </h2>    
+
                 <div class="mt-6 space-y-6 text-gray-700 dark:text-gray-300">
                     {{ range .Site.Params.p1.content }}
                     <div class="flex items-start">
@@ -87,38 +88,52 @@
     </div>
 
     
-    <!-- Our professional profile section -->
+    <!-- Section 2: Our professional profile section -->
     <div class="py-20 px-4 mx-auto max-w-7xl lg:px-8">
-        <!-- 将 text-white 改为 text-slate-900 (白天深色) 和 dark:text-white (黑夜白色) -->
-        <h2 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-16 border-l-4 border-emerald-500 pl-4">
-            {{ .Site.Params.p2.heading }}
-        </h2>
+        <!-- 标题部分 -->
+        <div class="mb-12 border-l-4 border-emerald-500 pl-4">
+            <h2 class="text-4xl font-extrabold text-slate-900 dark:text-white">{{ .Site.Params.p2.heading }}</h2>
+            <p class="mt-2 text-gray-400">{{ .Site.Params.p2.description }}</p>
+        </div>
         
         <div class="relative">
-            <!-- 桌面端横线 -->
-            <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gray-800"></div>
-            <!-- 经历网格：自动适配 5 列 -->
+            <!-- 桌面端横线：适配日间模式颜色 -->
+            <div class="hidden md:block absolute top-12 left-0 w-full h-0.5 bg-gray-200 dark:bg-gray-800"></div>
+            
+            <!-- 经历网格 -->
             <div class="grid grid-cols-1 md:grid-cols-5 gap-8">
                 {{ range .Site.Params.p2.experience }}
                 <div class="relative flex flex-col items-center md:items-start group">
                     
-                    <div class="mb-6 text-emerald-400 font-mono text-xs font-bold uppercase tracking-tighter">
+                    <!-- 1. 日期：text-xs 变 text-sm (大一号) -->
+                    <div class="mb-6 text-emerald-600 dark:text-emerald-400 font-mono text-sm font-bold uppercase tracking-tighter">
                         {{ .period }}
                     </div>
 
-                    <!-- Logo 节点：移除 grayscale，保持原色 -->
-                    <div class="relative z-10 w-20 h-20 mb-6 p-3 bg-gray-900 border border-gray-700 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:border-emerald-500 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.2)]">
+                    <!-- 2. Logo 容器：实现 bg-white (日间) 到 bg-gray-900 (夜间) 的切换 -->
+                    <div class="relative z-10 w-20 h-20 mb-6 p-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-700 rounded-2xl flex items-center justify-center transition-all duration-300 group-hover:scale-110 group-hover:border-emerald-500 group-hover:shadow-[0_0_20px_rgba(16,185,129,0.2)] shadow-sm dark:shadow-none">
                         <img src="/assets/images/logos/{{ .logo }}.png" 
                             alt="{{ .company }}" 
-                            class="max-w-full max-h-full object-contain transition-all duration-500"> <!-- 删除了 grayscale -->
+                            class="max-w-full max-h-full object-contain transition-all duration-500">
                     </div>
 
-                    <div class="text-center md:text-left">
-                        <h3 class="text-white font-bold text-base leading-tight mb-1">{{ .role }}</h3>
-                        <div class="text-emerald-500 text-xs font-medium mb-3">@ {{ .company }}</div>
+                    <div class="text-center md:text-left w-full">
+                        <!-- 3. 岗位名称：text-slate-900 (日间黑) dark:text-white (夜间白) -->
+                        <h3 class="text-slate-900 dark:text-white font-bold text-base leading-tight mb-1">
+                            {{ .role }}
+                        </h3>
+
+                        <!-- 4. 公司名称：text-xs 变 text-sm (大一号) -->
+                        <div class="text-emerald-500 dark:text-emerald-400 text-sm font-medium mb-3">
+                            @ {{ .company }}
+                        </div>
                         
-                        <!-- ✅ 关键修复：将 .text 改为 .details 以匹配你的 YAML -->
-                        <p class="text-gray-400 text-xs leading-relaxed border-t border-gray-800 pt-3">
+                        <!-- 5. 详细内容：
+                            - text-xs 变 text-sm (大一号)
+                            - text-gray-600 (日间深灰) dark:text-gray-400 (夜间浅灰)
+                            - border-gray-200 (日间横线)
+                        -->
+                        <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed border-t border-gray-200 dark:border-gray-800 pt-3">
                             {{ .details | markdownify }}
                         </p>
                     </div>
@@ -128,15 +143,17 @@
         </div>
     </div>
 
-    <!-- Skillset Section with Radar Chart -->
+    <!-- Section 3: Skillset Section with Radar Chart -->
     <div class="py-20 px-4 mx-auto max-w-7xl lg:px-8">
-        <h2 class="text-4xl font-extrabold text-slate-900 dark:text-white mb-16 border-l-4 border-emerald-500 pl-4">
-            {{ .Site.Params.p3.heading }}
-        </h2>
+    <!-- 标题部分 -->
+        <div class="mb-12 border-l-4 border-emerald-500 pl-4">
+            <h2 class="text-4xl font-extrabold text-slate-900 dark:text-white">{{ .Site.Params.p3.heading }}</h2>
+            <p class="mt-2 text-gray-400">{{ .Site.Params.p3.description }}</p>
+        </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <!-- 左侧：雷达图容器 -->
-            <div class="bg-gray-900/50 p-8 rounded-3xl border border-gray-800 shadow-2xl">
+            <div class="bg-white dark:bg-gray-900 p-8 rounded-3xl border border-gray-100 dark:border-gray-800 ">
                 <canvas id="skillRadarChart"></canvas>
             </div>
 
@@ -148,7 +165,7 @@
                         <span class="w-2 h-2 bg-emerald-500 rounded-full mr-3 group-hover:scale-150 transition-transform"></span>
                         {{ .title }}
                     </h3>
-                    <p class="text-gray-400 text-sm leading-relaxed pl-5 border-l border-gray-800">
+                    <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed pl-5 border-l border-gray-200 dark:border-gray-800">
                         {{ .desc }}
                     </p>
                 </div>
@@ -207,9 +224,9 @@
         <div class="relative group">
             
             <!-- 左箭头 -->
-            <button id="prevBtn" class="absolute left-[-20px] top-1/2 -translate-y-1/2 z-20 bg-emerald-500/80 hover:bg-emerald-400 text-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7" />
+            <button id="prevBtn" class="absolute left-[-80px] top-1/2 -translate-y-1/2 z-20 bg-transparent text-emerald-500 hover:text-emerald-400 transition-all opacity-0 group-hover:opacity-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-28 w-28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M15 19l-7-7 7-7" />
                 </svg>
             </button>
 
@@ -218,13 +235,13 @@
                 {{ range .Site.Params.p4.items }}
                 <div class="flex-none w-full snap-center">
                     <!-- 立体卡片容器 -->
-                    <div class="relative overflow-hidden rounded-2xl bg-white p-3 
-                                shadow-[0_20px_50px_rgba(0,0,0,0.5)] 
+                    <div class="relative overflow-hidden rounded-none bg-white p-3 
+                                shadow-[0_20px_50px_rgba(0,0,0,0.1)] 
                                 transition-all duration-700
                                 group/card hover:shadow-[0_40px_100px_rgba(16,185,129,0.3)]">
                         
                         <!-- 图片容器 -->
-                        <div class="rounded-xl border border-gray-100">
+                        <div class="rounded-none border border-gray-100">
                             <img src="{{ .image }}" 
                                 alt="{{ .title }}" 
                                 class="w-full h-auto block">
@@ -241,9 +258,9 @@
             </div>
 
             <!-- 右箭头 -->
-            <button id="nextBtn" class="absolute right-[-20px] top-1/2 -translate-y-1/2 z-20 bg-emerald-500/80 hover:bg-emerald-400 text-white p-3 rounded-full shadow-lg transition-all opacity-0 group-hover:opacity-100">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" />
+            <button id="nextBtn" class="absolute right-[-80px] top-1/2 -translate-y-1/2 z-20 bg-transparent text-emerald-500 hover:text-emerald-400 transition-all opacity-0 group-hover:opacity-100">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-28 w-28" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9 5l7 7-7 7" />
                 </svg>
             </button>
         </div>
@@ -293,19 +310,19 @@
         <!-- 项目网格布局 -->
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             {{ range .Site.Params.p5.projects }}
-            <div class="flex flex-col overflow-hidden rounded-2xl bg-gray-900 border border-gray-800 transition-all duration-300 hover:border-emerald-500/50 hover:shadow-[0_10px_30px_rgba(16,185,129,0.1)]">
+            <div class="flex flex-col overflow-hidden rounded-2xl bg-white dark:bg-gray-900 border border-gray-300 dark:border-gray-800 transition-all duration-300 hover:border-emerald-500/50 hover:shadow-[0_10px_30px_rgba(16,185,129,0.1)]">
                 
                 <!-- 1. 项目封面图：删除了绝对定位的 Tag -->
-                <div class="relative h-48 w-full overflow-hidden">
+                <div class="relative h-48 w-full overflow-hidden ">
                     <img src="{{ .image }}" alt="{{ .title }}" class="h-full w-full object-cover transition-transform duration-500 hover:scale-105">
                 </div>
-
+ 
                 <!-- 2. 项目文字内容 -->
                 <div class="flex flex-1 flex-col p-6">
-                    <h3 class="text-xl font-bold text-white mb-3 leading-tight">
+                    <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-3 leading-tight">
                         {{ .title }}
                     </h3>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                    <p class="text-gray-600 text-sm leading-relaxed mb-6">
                         {{ .details }}
                     </p>
                     
@@ -313,7 +330,7 @@
                     <div class="mt-auto">
                         <!-- 新的 Tag 位置：在横线上方 -->
                         <div class="mb-3">
-                            <span class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+                            <span class="inline-flex items-center px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 border border-emerald-500/20">
                                 {{ .tag }}
                             </span>
                         </div>
@@ -330,35 +347,40 @@
     </div>
 
     <!-- Section 6: Contact Me -->
-    <div class="py-24 px-4 mx-auto max-w-7xl lg:px-8">
-        <div class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-gray-900 to-black border border-gray-800 p-12 text-center shadow-2xl">
+    <!-- 1. 修复最外层：确保这里是透明的，或者跟随全局背景色 -->
+    <div class="py-24 px-4 mx-auto max-w-7xl lg:px-8 bg-transparent">
+        
+        <!-- 2. 修复内层卡片：确保日间为 bg-white，夜间为 bg-slate-900 或你的深色背景类名 -->
+        <!-- 重点检查这里：不要只写 bg-white，必须配合 dark:bg-gray-900 (或你的主题色) -->
+        <div class="relative overflow-hidden rounded-3xl bg-white dark:bg-[#0f172a] border border-gray-200 dark:border-white/5 py-16 px-8 sm:px-16 text-center transition-all duration-500 shadow-xl shadow-gray-200/50 dark:shadow-none">
             
-            <!-- 背景装饰：淡淡的绿色光晕 -->
-            <div class="absolute -top-24 -left-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
-            <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl"></div>
+            <!-- 背景装饰：光晕在夜间模式也要稍微调低，防止过亮 -->
+            <div class="absolute -top-24 -left-24 w-64 h-64 bg-emerald-500/5 dark:bg-emerald-500/10 rounded-full blur-3xl"></div>
+            <div class="absolute -bottom-24 -right-24 w-64 h-64 bg-emerald-500/5 dark:bg-emerald-500/10 rounded-full blur-3xl"></div>
 
             <div class="relative z-10">
-                <h2 class="text-3xl font-extrabold text-white sm:text-4xl mb-6">
+                <!-- 标题颜色切换 -->
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white sm:text-4xl mb-6">
                     {{ .Site.Params.p6.heading }}
                 </h2>
-                <p class="text-lg text-gray-400 max-w-2xl mx-auto mb-10">
+                
+                <!-- 描述文字颜色切换 -->
+                <p class="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-10">
                     {{ .Site.Params.p6.description }}
                 </p>
 
-                <!-- 按钮组 -->
+                <!-- 按钮组保持不变 -->
                 <div class="flex flex-col sm:flex-row justify-center gap-6">
-                    <!-- 邮件按钮 -->
                     <a href="mailto:{{ .Site.Params.p6.email }}" 
-                    class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-emerald-500 text-black font-bold text-lg transition-all hover:bg-emerald-400 hover:-translate-y-1 shadow-lg shadow-emerald-500/20">
+                    class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-emerald-500 text-white dark:text-black font-bold text-lg transition-all hover:bg-emerald-600 dark:hover:bg-emerald-400 hover:-translate-y-1 shadow-lg shadow-emerald-500/20">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
                         Contact Me
                     </a>
 
-                    <!-- 简历下载按钮 -->
                     <a href="{{ .Site.Params.p6.cv_url }}" download
-                    class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-white/5 text-white font-bold text-lg border border-white/10 transition-all hover:bg-white/10 hover:-translate-y-1 backdrop-blur-sm">
+                    class="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gray-50 dark:bg-white/5 text-slate-900 dark:text-white font-bold text-lg border border-gray-200 dark:border-white/10 transition-all hover:bg-gray-100 dark:hover:bg-white/10 hover:-translate-y-1 backdrop-blur-sm">
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
                         </svg>
@@ -366,9 +388,8 @@
                     </a>
                 </div>
 
-                <!-- LinkedIn 快速链接 -->
                 <div class="mt-10">
-                    <a href="{{ .Site.Params.p6.linkedin_url }}" target="_blank" class="text-gray-500 hover:text-emerald-400 transition-colors text-sm font-medium uppercase tracking-widest">
+                    <a href="{{ .Site.Params.p6.linkedin_url }}" target="_blank" class="text-gray-400 dark:text-gray-500 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors text-sm font-medium uppercase tracking-widest">
                         View LinkedIn Profile →
                     </a>
                 </div>
