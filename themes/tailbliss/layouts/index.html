@@ -1,7 +1,7 @@
 {{ define "main" }}
 <main>
     <!-- 全屏背景 Hero Section -->
-    <div class="relative h-[90vh] flex items-center overflow-hidden bg-gray-900">
+    <div class="relative min-h-[80vh] md:h-[90vh] flex items-center overflow-hidden bg-gray-900 py-20 md:py-0">        
         <!-- 背景图片层 -->
         <div class="absolute inset-0 z-0">
             {{ $bgImage := resources.Get "assets/images/featured/hero-bg.jpg" }}
